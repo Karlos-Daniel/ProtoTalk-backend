@@ -2,7 +2,7 @@
 
 
 const getArrayTest =async(req,res)=>{
-    const arraTest= ["hola", "saludos", "quieto", "gracias"];
+    const arraTest= ["hola", "idle", "saludos", "quieto", "gracias"];
     return res.json(
         arraTest
     )
