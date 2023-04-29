@@ -2,7 +2,7 @@ const express = require('express');
 require('dotenv').config();
 const cors = require('cors');
 const fileUpload = require('express-fileupload');
-//const {dbConnection} = require('../database/config');
+const {dbConnection} = require('../database/config');
 const routesTest = require('../routes/test');
 
 
@@ -22,7 +22,7 @@ class server{
     }
 
     async conectarDB(){
-        //await dbConnection();
+        await dbConnection();
     }
 
     middlewares(){
