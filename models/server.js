@@ -3,7 +3,7 @@ require('dotenv').config();
 const cors = require('cors');
 const fileUpload = require('express-fileupload');
 //const {dbConnection} = require('../database/config');
-//const routesCategoria = require('../routes/categorias.routes');
+const routesTest = require('../routes/test');
 
 
 class server{
@@ -37,7 +37,7 @@ class server{
 
     routes(){
         
-        //this.app.use(routesCategoria);
+        this.app.use(routesTest);
        
     }
 
