@@ -4,7 +4,8 @@ const cors = require('cors');
 const fileUpload = require('express-fileupload');
 const {dbConnection} = require('../database/config');
 const routesTest = require('../routes/test');
-
+const routesCategory = require('../routes/category.routes')
+const routesWord = require('../routes/words.routes')
 
 class server{
     constructor(){
@@ -38,7 +39,10 @@ class server{
     routes(){
         
         this.app.use(routesTest);
-       
+        this.app.use(routesCategory);
+        this.app.use(routesWord);
+        
+        
     }
 
     listen(){
