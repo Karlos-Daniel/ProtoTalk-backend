@@ -5,7 +5,7 @@ const Word = require('../models/words');
 const wordsGet = async(req = request, res = response)=>{
 
    
-    const resp = await Word.find({});
+    const resp = await Word.find({}).populate('category','category');
 
     resp.sort((a,b)=>{
         if (a.category
