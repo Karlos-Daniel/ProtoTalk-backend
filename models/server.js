@@ -5,6 +5,7 @@ const {socketController} = require('../controllers/socketController')
 const fileUpload = require('express-fileupload');
 const {dbConnection} = require('../database/config');
 const routesCategory = require('../routes/category.routes')
+const socketIO = require("socket.io");
 const routesWord = require('../routes/words.routes')
 
 class server{
@@ -12,7 +13,11 @@ class server{
         this.app = express();
         this.port = process.env.PORT;
         this.server = require('http').createServer(this.app);
-        this.io = require('socket.io')(this.server);
+        this.io = socketIO(this.server,{
+            cors: {
+                origin: "*",
+              },
+        })
 
         //DB
         this.conectarDB();
