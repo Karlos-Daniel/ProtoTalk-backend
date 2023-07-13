@@ -48,9 +48,9 @@ def preprocess_text(text):
     nlp = spacy.load('es_core_news_sm')
 
     # Se definen los STOP WORDS excluyendo los prononmbres y terminos a utilizar 
-    stop_words = set(['además', 'ante', 'bajo', 'cabe', 'con', 'contra', 'cuando', 'de', 'desde', 'donde', 'durante',
-                      'e', 'a', 'el', 'en', 'entre', 'hacia', 'hasta', 'la', 'al', 'las', 'lo', 'los', 'mis', 'para',
-                      'por', 'qué', 'según', 'sin', 'sobre', 'tras', 'un', 'una','le','del','es','.', ','])
+    stop_words = set(['además', 'ante', 'bajo', 'cabe', 'contra', 'de', 'durante',
+                      'e', 'a', 'el', 'en', 'entre', 'hacia', 'hasta', 'la', 'al', 'las', 'lo', 'los', 'mis',
+                      'por', 'qué', 'según', 'sobre', 'tras', 'un', 'una','le','del','es','.', ','])
 
     # POS tags permitidos (Pronombres, Verbos, Adjetivos)
     allowed_tags = ['PRON', 'VERB', 'ADJ']
