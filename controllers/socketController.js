@@ -32,8 +32,10 @@ const socketController = (socket)=>{
 
         socket.on("TextOutput", async (output) => {
           var textoProcesado = await processedText(output);
-          GLOSA.push(textoProcesado)
+          GLOSA = [];
+          GLOSA.push(textoProcesado);
           console.log(textoProcesado);
+          console.log(GLOSA);
           /* socket.emit("ProcessedText", textoProcesado); */
           socket.emit("ProcessedText",GLOSA)
         });
