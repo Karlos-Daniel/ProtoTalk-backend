@@ -4,8 +4,12 @@ const exec = util.promisify(require('child_process').exec);
 require('dotenv').config();
 // Define el comando que deseas ejecutar
 const comandos = [
-    'pyhton -m info spacy',
-    'python -m spacy info en_core_web_sm'
+    'sudo apt update',
+    'sudo apt install python3',
+    'sudo apt install python3-pip',
+    'pip install -U pip setuptools wheel',
+    'pip install -U spacy',
+    'python -m spacy download es_core_news_sm',
   ];
   
  function ejecutarComandosEnSecuencia(comandos) {
