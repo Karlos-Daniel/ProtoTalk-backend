@@ -36,7 +36,12 @@ class server{
     }
 
     middlewares(){
-        
+        this.app.use(function (req, res, next) {
+            res.setHeader('Access-Control-Allow-Origin', '*'); // o el dominio específico
+            res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+            res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+            next();
+        });
         this.app.use(cors());//cors
         this.app.use(express.json());
         this.app.use(fileUpload({
