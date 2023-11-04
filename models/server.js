@@ -7,7 +7,10 @@ const {dbConnection} = require('../database/config');
 const routesCategory = require('../routes/category.routes')
 const socketIO = require("socket.io");
 const routesWord = require('../routes/words.routes')
-
+const corsOptions = {
+    origin: ['http://localhost:5173', 'http://another-example.com'],
+    methods: ['GET', 'POST','PUT','DELETE','PATCH'],
+  };
 class server{
     constructor(){
         this.app = express();
@@ -36,13 +39,8 @@ class server{
     }
 
     middlewares(){
-        this.app.use(function (req, res, next) {
-            res.setHeader('Access-Control-Allow-Origin', '*'); // o el dominio específico
-            res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-            res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-            next();
-        });
-        this.app.use(cors());//cors
+       
+        this.app.use(cors(corsOptions));//cors
         this.app.use(express.json());
         this.app.use(fileUpload({
             useTempFiles : true,
