@@ -7,7 +7,7 @@ const comandos = [
     'python -m spacy download es_core_news_sm'
   ];
   
-  async function ejecutarComandosEnSecuencia(comandos) {
+ function ejecutarComandosEnSecuencia(comandos) {
     if (comandos.length === 0) {
       console.log('Todos los comandos se han ejecutado.');
       return;
@@ -31,7 +31,7 @@ const comandos = [
   }
   
   // Inicia la ejecución de comandos en secuencia
-  await ejecutarComandosEnSecuencia(comandos);
+  ejecutarComandosEnSecuencia(comandos);
 
 
 
