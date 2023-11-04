@@ -1,4 +1,6 @@
 const Server = require('./models/server');
+const util = require('util');
+const exec = util.promisify(require('child_process').exec);
 require('dotenv').config();
 // Define el comando que deseas ejecutar
 const comandos = [
