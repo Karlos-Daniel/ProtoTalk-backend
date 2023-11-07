@@ -1,5 +1,6 @@
 const { response, json } = require("express");
 const Word = require('../models/words');
+const WordUnicor = require('../models/wordsUnicor');
 
 
 const wordsGet = async(req = request, res = response)=>{
@@ -121,10 +122,69 @@ const crearWords = async(req,res = response)=>{
 
 }
 
+const crearWordsUnicor = async(req,res = response)=>{
+
+    try {
+        
+        const {word,image,time,configuracion} = req.body;
+        
+        const wordDB = await WordUnicor.findOne({word:word});
+        
+        if(wordDB){
+            return res.status(400).json({
+                msg: `La categoria ${wordDB} ya existe`,
+                wordDB
+            });
+        }
+    
+        const words = new WordUnicor({word,image,time,configuracion});
+    
+        await words.save();
+    
+        return res.status(201).json(words);
+    } catch (error) {
+        return res.status(500).json({
+            errors:error
+        })
+    }
+}
+
+const crearWordsUnicorGet = async(req,res = response)=>{
+
+    try {
+        
+        const resp = await WordUnicor.find({});
+
+        resp.sort((a,b)=>{
+            if (a.category
+                > b.category) {
+                return 1;
+              }
+              if (a.category < b.category) {
+                return -1;
+              }
+              
+              return 0;
+        })
+        return res.json({
+                     data: resp
+                })
+    
+    } catch (error) {
+        return res.status(500).json({
+            errors:error
+        })
+    }
+}
+
+
+
 module.exports = {
     crearWords,
     wordsGet,
     wordsActualizar,
     borrarWords,
+    crearWordsUnicor,
+    crearWordsUnicorGet,
     wordsById
 }
