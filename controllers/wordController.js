@@ -149,18 +149,22 @@ const crearWordsUnicor = async(req,res = response)=>{
     }
 }
 
-const crearWordsUnicorGet = async(req,res = response)=>{
+
+
+const WordsUnicorGet = async(req,res = response)=>{
 
     try {
         
         const resp = await WordUnicor.find({});
 
         resp.sort((a,b)=>{
-            if (a.category
-                > b.category) {
+            console.log(a);
+            console.log(a.word);
+            if (a.word
+                > b.word) {
                 return 1;
               }
-              if (a.category < b.category) {
+              if (a.word < b.word) {
                 return -1;
               }
               
@@ -185,6 +189,6 @@ module.exports = {
     wordsActualizar,
     borrarWords,
     crearWordsUnicor,
-    crearWordsUnicorGet,
+    WordsUnicorGet,
     wordsById
 }

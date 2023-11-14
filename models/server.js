@@ -7,6 +7,7 @@ const {dbConnection} = require('../database/config');
 const routesCategory = require('../routes/category.routes')
 const socketIO = require("socket.io");
 const routesWord = require('../routes/words.routes')
+
 const corsOptions = {
     origin: "*",
     methods: ['GET', 'POST','PUT','DELETE','PATCH'],
