@@ -6,7 +6,8 @@ const { crearWords,
     borrarWords,
     wordsById,
     crearWordsUnicor,
-    WordsUnicorGet} = require('../controllers/wordController')
+    WordsUnicorGet,
+    WordsUnicorGetByConfig} = require('../controllers/wordController')
 
 
 const router = Router();
@@ -17,6 +18,7 @@ const router = Router();
 router.get('/word',wordsGet);
 
 router.get('/wordUnicorGet',WordsUnicorGet)
+router.get('/wordUnicorGetConfig/:letra',WordsUnicorGetByConfig)
 router.post('/wordUnicorPost',crearWordsUnicor);
 
 router.get('/word/:id', wordsById );

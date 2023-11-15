@@ -181,7 +181,36 @@ const WordsUnicorGet = async(req,res = response)=>{
     }
 }
 
+const WordsUnicorGetByConfig = async(req,res = response)=>{
 
+    try {
+        const {letra} = req.params
+
+        const resp = await WordUnicor.find({configuracion:letra.toUpperCase()});
+
+        resp.sort((a,b)=>{
+            console.log(a);
+            console.log(a.word);
+            if (a.word
+                > b.word) {
+                return 1;
+              }
+              if (a.word < b.word) {
+                return -1;
+              }
+              
+              return 0;
+        })
+        return res.json({
+                     data: resp
+                })
+    
+    } catch (error) {
+        return res.status(500).json({
+            errors:error
+        })
+    }
+}
 
 module.exports = {
     crearWords,
@@ -190,5 +219,7 @@ module.exports = {
     borrarWords,
     crearWordsUnicor,
     WordsUnicorGet,
+    WordsUnicorGetByConfig,
+
     wordsById
 }
