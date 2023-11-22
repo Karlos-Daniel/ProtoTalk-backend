@@ -7,8 +7,9 @@ const {dbConnection} = require('../database/config');
 const routesCategory = require('../routes/category.routes')
 const socketIO = require("socket.io");
 const routesWord = require('../routes/words.routes')
+
 const corsOptions = {
-    origin: ['http://localhost:5173', 'http://another-example.com'],
+    origin: "*",
     methods: ['GET', 'POST','PUT','DELETE','PATCH'],
   };
 class server{

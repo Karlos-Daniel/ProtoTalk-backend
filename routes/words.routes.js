@@ -4,7 +4,10 @@ const { crearWords,
     wordsGet,
     wordsActualizar,
     borrarWords,
-    wordsById} = require('../controllers/wordController')
+    wordsById,
+    crearWordsUnicor,
+    WordsUnicorGet,
+    WordsUnicorGetByConfig} = require('../controllers/wordController')
 
 
 const router = Router();
@@ -13,6 +16,10 @@ const router = Router();
 //TODO: Middlewares
 
 router.get('/word',wordsGet);
+
+router.get('/wordUnicorGet',WordsUnicorGet)
+router.get('/wordUnicorGetConfig/:letra',WordsUnicorGetByConfig)
+router.post('/wordUnicorPost',crearWordsUnicor);
 
 router.get('/word/:id', wordsById );
 
