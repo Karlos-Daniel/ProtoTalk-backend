@@ -1,5 +1,7 @@
+# -*- coding: latin-1 -*-
 import spacy
 import sys
+
 def preprocess_text(text):
     # Aqui cargamos el modelo spañol de Spacy
     nlp = spacy.load('es_dep_news_trf')
