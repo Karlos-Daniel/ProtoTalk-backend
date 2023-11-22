@@ -1,9 +1,8 @@
 import spacy
 import sys
-
 def preprocess_text(text):
     # Aqui cargamos el modelo spañol de Spacy
-    nlp = spacy.load('es_core_news_sm')
+    nlp = spacy.load('es_dep_news_trf')
 
     # Se definen los STOP WORDS excluyendo los prononmbres y terminos a utilizar 
     stop_words = set(['además', 'ante', 'cabe', 'e', 'a', 'el', 'entre', 'hacia', 'lo'
